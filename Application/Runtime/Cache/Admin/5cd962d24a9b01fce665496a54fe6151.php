@@ -1,0 +1,124 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/Public/Admin/lib/html5shiv.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="/Public/Admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>分类管理</title>
+</head>
+<body>
+<form action="<?php echo U('productCategory');?>" method="post">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 分类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <div class="text-c">
+            <label >分类名称：<input class="input-text radius" type="text" name="type_name" id="" placeholder="输入分类名" <?php if($_POST['type_name'] == '0'): ?>value=""<?php endif; ?> value="<?php echo ($_POST['type_name']); ?>" style="width:200px;margin-right:20px">    
+            <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+        </div>
+    </div>
+</form>
+    <div class="text-c" >
+        <form class="Huiform" method="post" action="" >
+            <span class="select-box" style="width:150px;"><label for="ding"><span>添加顶级分类</span></span><a onclick="parentAdd('添加顶级分类','<?php echo U('Product/parentAdd');?>?path=fu}'),'700','500'"></label>
+            <button id="ding" type="button" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe600;</i> 添加</button></a>
+        </form>
+    </div>
+    <form action="<?php echo U('productCategoryDel');?>" method="post">
+        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><i class="Hui-iconfont">&#xe6e2;</i><button id="buttons" class="btn btn-danger radius disabled" type="submit">批量删除</button></span></div>
+        <div class="mt-20">
+        <table class="table table-border table-bordered table-bg" >
+            <thead>
+                <tr class="text-c">
+                    <th width="25"><input class="cb" onclick="cd(this)" type="checkbox" name="" value=""></th>
+                    <th width="70">ID</th>
+                    <th width="200">分类名</th>
+                    <th width="120">PATH路径</th>
+                    <th width="200">父类名</th>
+                    <th width="120">操作</th>
+                </tr>
+            
+            </thead>
+            <tbody>
+              <?php if(is_array($list)): foreach($list as $key=>$val): ?><tr class="text-c">
+                        <td><input class="cb" onclick="cd(this)" name="box[]" type="checkbox" value="<?php echo ($val["id"]); ?>"></td>
+                        <td class="text-l"><?php echo ($val["id"]); ?></td>
+                        <td class="text-l"><?php echo ($val["name"]); ?></td>
+                        <td class="text-l"><?php echo ($val["path"]); ?></td>
+                        <td class="text-l"><?php echo ($val["pid"]); ?></td>
+                        <td class="f-14 product-brand-manage"><a style="text-decoration:none" onclick="parentEdit('编辑','<?php echo U('productEdit');?>?id=<?php echo ($val["id"]); ?>'),'700','500'"><i class="Hui-iconfont">&#xe6df;</i></a> 
+                        <a style="text-decoration:none" class="ml-5"  href="javascript:if(confirm('确实要删除吗?'))location='<?php echo U('productCategoryDel');?>?id=<?php echo ($val["id"]); ?>'" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        <a onclick="productCategoryAdd('添加子分类','<?php echo U('productCategoryAdd');?>?id=<?php echo ($val["id"]); ?>'),'700','500'">添加子分类</a>
+                        </td>
+                    </tr><?php endforeach; endif; ?>
+                </form>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 分页按钮 -->
+<div class="pagination" style="float: right;margin-right: 20px">
+    <ul>
+        <?php echo ($btn); ?>
+    </ul>
+</div>  
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/Public/Admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/Admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/Public/Admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/Public/Admin/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/Public/Admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="/Public/Admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/Public/Admin/lib/laypage/1.2/laypage.js"></script>
+<script>
+	// 添加顶级分类
+	function parentAdd(title,url,w,h){
+		layer_show(title,url,w,h);
+
+	}
+	// 编辑
+	function parentEdit(title,url,w,h){
+		layer_show(title,url,w,h);
+
+	}
+	// 添加子分类
+	function productCategoryAdd(title,url,w,h){
+		layer_show(title,url,w,h);
+
+	}
+	// 批量删除
+	    function cd(obj){
+	    var cb = $('#buttons').removeClass('disabled');
+	    }
+    // 分页按钮样式
+    $('.pagination span').unwrap('div').wrap('<li class="btn"></li>').last().parent().addClass('active');
+    $('.pagination a').wrap('<li class="btn"></li>');
+</script>
+<script type="text/javascript">
+$('.table-sort').dataTable({
+    "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+    "bStateSave": true,//状态保存
+    "aoColumnDefs": [
+      //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+      {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
+    ]
+});
+</script>
+</body>
+</html>

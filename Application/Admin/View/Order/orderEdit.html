@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>修改订单</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+    <link href="__PUBLIC__/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
+  </head>
+<body>
+    <section class="content">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 修改订单信息</h3>
+                </div>
+                <div class="panel-body">
+                    <!--表单数据-->
+                    <form method="post" action="{:U('Admin/Order/edit_order')}" id="order-add">
+                        <div class="tab-pane">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr><td>费用信息:</td>
+                                	<td>
+                                		<div class="col-xs-9">
+                                		<input type="hidden" name="order_id" value="{$order.order_id}">
+                                		订单总额：{$goods_total}￥
+                                		</div></td>
+                                </tr>
+                                <tr>
+                                    <td>收货人:</td>
+                                    <td>
+                                    <div class="form-group ">
+	                                    <div class="col-xs-2">
+	                                        <input name="consignee" id="consignee" value="{$order['consignee']}" class="form-control" />	                                    
+                                        </div>  
+                                        <div class="col-xs-2">
+										    <span id="err_consignee" style="color:#F00; display:none;">收货人名字不能为空</span>
+                                        </div> 
+                                    </div>    
+                                    </td>
+                                </tr>  
+                                <tr>
+                                    <td>手机:</td>
+                                    <td>
+                                    <div class="form-group "> 
+                                        <div class="col-xs-2">                                        	
+	                                        <input name="mobile" id="mobile" value="{$order.mobile}" class="form-control" placeholder="收货人联系电话" />
+                                        </div> 
+                                        <div class="col-xs-2">
+										    <span id="err_mobile" style="color:#F00; display:none;">收货人电话不能为空</span>
+                                        </div>  
+                                    </div>    
+                                    </td>
+                                </tr>                                                                 
+                                <tr>
+                                    <td>地址:</td>
+                                    <td>
+                                    <div class="form-group ">
+                                    	<div class="col-xs-2">
+                                        <select onchange="get_city(this)" id="province" name="province" class="form-control">
+                                            <option value="0">选择省份</option>
+                                            <vallist name="province" id="val">
+                                                <option value="{$val.id}" >{$val.name}</option>
+                                            </vallist>
+                                        </select>
+                                         </div>   
+                                        <div class="col-xs-2">                                        
+                                        <select onchange="get_area(this)" id="city" name="city" class="form-control">
+                                            <option value="0">选择城市</option>
+                                            <vallist name="city" id="val">
+                                                <option value="{$val.id}">{$val.name}</option>
+                                            </vallist>
+                                        </select>
+                                         </div>   
+                                        <div class="col-xs-2">                                        
+                                        <select id="district" name="district" class="form-control">
+                                            <option value="0">选择区域</option>
+                                            <vallist name="area" id="val">
+                                                <option value="{$val.id}">{$val.name}</option>
+                                            </vallist>
+                                        </select>
+                                         </div>   
+                                        <div class="col-xs-3">
+                                        	<input name="address" id="address" value="{$order.address}" class="form-control"   placeholder="详细地址"/>
+									    </div>   
+										<div class="col-xs-2">
+										    <span id="err_address" style="color:#F00; display:none;">请完善收货地址</span>
+                                        </div>                                                                             
+									</div>  
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>配送物流</td>
+                                    <td>
+                                    <div class="form-group ">
+	                                    <div class="col-xs-2">
+                                        <select id="shipping" name="shipping"  class="form-control" >
+                                                <option>
+                                                 {$order['shipping_name']}</option>
+                                        </select>
+                                        </div>
+                                    </div>   
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>支付方式</td>
+                                    <td>
+                                    <div class="form-group ">
+	                                    <div class="col-xs-2">
+                                        <select id="payment" name="payment"  class="form-control" >
+                                                <option>{$order.pay_name}</option>
+                                        </select>
+                                        </div>
+                                    </div>   
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>邮编:</td>
+                                    <td>
+                                    <div class="form-group ">
+	                                    <div class="col-xs-4">
+	                                        <input name="invalice_title" value="{$order.zipcode}" class="form-control"  />
+                                        </div>
+                                    </div>    
+                                    </td>
+                                </tr>                                
+                                <tr>
+                                    <td>添加商品:</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="col-xs-2">                                        
+	                                            <a class="btn btn-primary" href="{:U('Order/orderGoodsAdd')} ">
+                                                <i class=" fa-search"></i>添加商品</a>
+                                            </div>                                                            
+                                            <div class="col-xs-2">
+                                                <span id="err_goods" style="color:#F00; display:none;">请添加下单商品</span>
+                                            </div>                                            
+                                        </div>                                    
+                                    </td>
+                                </tr>                                              
+                                <tr>
+
+                                    <td>商品列表:</td>
+                                    <td> 
+                                       <div class="form-group">
+                                       		<div class="col-xs-10">
+                                       		<table class="table table-bordered" id="tab">
+                                       			<tr>
+									                <td class="text-left">商品名称</td>
+									                <td class="text-left">规格</td>         
+									                <td class="text-left">数量</td>	             
+									                <td class="text-left">单品价格</td>
+                                                    <td class="text-left">单品小计</td>
+									                <td class="text-left">操作</td>
+									            </tr>
+									            <foreach  name="goodsList" item="val" key="k">
+									            	<tr>
+									                <td class="text-left">{$val['goods_name']}</td>            
+									                <td class="text-left">{$val['goods_attr']}</td>
+									                <td class="text-left">{$val['goods_number']}</td>
+                                                    <td class="text-left" >{$val['goods_price']}</td>
+                                                    <td class="text-left" >{$val['goods_price']*$val['goods_number']}￥</td>
+									                <!-- <td class="text-left"><a href="{:U(Order/orderEditDel)}?del=del&rec_id={$val['rec_id']}&id={$orderList['order_id']}&userid={$orderList['user_id']}"">删除</a></td> -->
+                                                    <td><input   type=button   value="删除"   onclick="del(this)"></td>
+									           		</tr>
+									           </foreach>
+                                       		</table>
+                                       	   </div>
+                                       </div>                                   
+                                       <div class="form-group">                                       
+                                            <div class="col-xs-10" id="goods_td">
+                                                
+                                            </div>                                                                                                                                                      
+	                                   </div>                                                                      
+                                    </td>
+                                </tr>                                 
+                                <tr>
+                                    <td>备注信息:</td>
+                                    <td>
+                                    <div class="form-group ">
+	                                    <div class="col-xs-4">
+                                        	<textarea style="width:440px; height:150px;" name="postscript">{$order.postscript}</textarea>
+                                        </div>
+                                    </div>    
+                                    </td>
+                                </tr>                                  
+                                </table>
+                        </div>
+                        <input type="hidden" name="id" value="{$order.order_id}">
+                        <button class="btn btn-info" type="button" onclick="checkSubmit()">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                          		 保存
+                        </button>
+                    </form> 
+                </div>
+            </div>
+        </div> 
+    </section>
+</div>
+<script>
+//添加
+function add(obj)
+{
+    //添加一个新行到表格
+    var tr = tab.insertRow();
+
+    var td = tr.insertCell();
+    td.innerHTML = obj.id.value;
+
+    tr.insertCell().innerHTML = obj.name.value;
+    tr.insertCell().innerHTML = obj.age.value;
+    tr.insertCell().innerHTML = obj.des.value;
+    tr.insertCell().innerHTML = '<button onclick="del(this)">删除</button>';
+
+    obj.reset();
+    //可以直接调用的事件
+    // obj.submit();
+    // btn.click();
+    // focus()
+
+    return false;
+}
+
+var tab = document.getElementById('tab');
+//删除
+function del(obj)
+{
+    var tr = obj.parentNode.parentNode;
+     // obj.parentNode.parentNode.removeNode(true);
+    // tr.parentNode.removeChild(tr);
+
+    //等效上一行
+    tab.deleteRow(tr.rowIndex);
+}   
+   /* 用户订单区域选择 */
+$(document).ready(function(){
+	$('#province').val({$order.province});
+	$('#city').val({$order.city});
+	$('#district').val({$order.district});
+	$('#shipping_id').val({$order.shipping_id});
+});
+// 选择商品
+function selectGoods(){
+    var url = "{:U('Admin/Order/search_goods')}";
+    layer.open({
+        type: 2,
+        title: '选择商品',
+        shadeClose: true,
+        shade: 0.8,
+        area: ['60%', '60%'],
+        content: url, 
+    });
+}
+
+// 选择商品返回
+function call_back(table_html)
+{
+	$('#goods_td').empty().html('<table class="table table-bordered">'+table_html+'</table>');
+	//过滤选择重复商品
+	$('input[name*="spec"]').each(function(i,o){
+		if($(o).val()){
+			var name='goods_id['+$(o).attr('rel')+']['+$(o).val()+'][goods_num]';
+			$('input[name="'+name+'"]').parent().parent().remove();
+		}
+	});
+	layer.closeAll('iframe');
+}
+
+function checkSubmit()
+{							
+	$("span[id^='err_']").each(function(){
+		$(this).hide();
+	});
+   ($.trim($('#consignee').val()) == '') && $('#err_consignee').show();
+   ($.trim($('#province').val()) == '') && $('#err_address').show();
+   ($.trim($('#city').val()) == '') && $('#err_address').show();
+   ($.trim($('#district').val()) == '') && $('#err_address').show();
+   ($.trim($('#address').val()) == '') && $('#err_address').show();
+   ($.trim($('#mobile').val()) == '') && $('#err_mobile').show();						   						   						   	
+   if(($("input[name^='goods_id']").length ==0) && ($("input[name^='old_goods']").length == 0)){
+	   layer.alert('订单中至少要有一个商品', {icon: 2});  // alert('少年,订单中至少要有一个商品');
+	   return false;
+   }												   
+   if($("span[id^='err_']:visible").length > 0 ) 
+      return false;							  
+   $('#order-add').submit();	  
+}
+</script>
+</body>
+</html>

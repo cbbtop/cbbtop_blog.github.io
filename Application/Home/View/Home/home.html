@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>wilkins博客,技术博客,个人博客模板, php博客系统</title>
+    <meta name="keywords" content="个人博客系统,个人博客模板,thinkphp博客,php博客,技术博客,wilkins" />
+    <meta name="description" content="wilkins的php博客,个人技术博客 c" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="author" content="baijunyao,&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bjy.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/animate.css"></head>
+  <style type="text/css">
+    .color-a{
+      background: #f9f9f9;
+    }
+  </style>
+  <body>
+    <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
+    <div style="padding:10px 15px">
+      <ul class="nav nav-pills">
+        <!-- <li><p>wilkins博客</p></li> -->
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <!-- #f9f9f9 -->
+        <foreach name="typeList" item="val" key="k">
+
+        <li role="presentation"><a id="{$val.id}" href="{:U('Home/home')}?id={$val.id}" <if condition="$_GET['id'] eq $val['id']">class="color-a"<else /></if> >{$val.name}</a></li>
+        </foreach>
+      </ul>
+    
+    </div>
+    <!--   <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" onclick="recordId('/',0)">
+            <div class="hidden-xs b-nav-background"></div>
+            <ul class="b-logo-code">
+              <li class="b-lc-start"></li>
+              <li class="b-lc-echo"></li></ul>
+            <p class="b-logo-word">wilkins博客</p>
+            <p class="b-logo-end"></p></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav b-nav-parent">
+            <li class="hidden-xs b-nav-mobile"></li>
+            <li class="b-nav-cname b-nav-active ">
+              <a href="{:U('Home/home')}">首页</a></li>
+            <foreach name="typeList" item="val" key="k">
+            <li class="b-nav-cname">
+              <a href="{:U('Home/home')}?id={$val.id}">{$val.name}</a></li>
+            </foreach>
+            <!-- <li class="b-nav-cname  ">
+              <a href="/category/28" onclick="return recordId('cid',28)">前端</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/29" onclick="return recordId('cid',29)">Linux</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/31" onclick="return recordId('cid',31)">乱七八糟</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/30" onclick="return recordId('cid',30)">技术之外</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/chat">随言碎语</a></li>
+            <li class="b-nav-cname hidden-sm   ">
+              <a href="/git">开源项目</a></li> -->
+       <!--    </ul>
+          <ul id="b-login-word" class="nav navbar-nav navbar-right">
+            <li class="b-nav-cname b-nav-login">
+              <div class="hidden-xs b-login-mobile"></div>
+              <a href="javascript:;" onclick="login()">登录</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </header>
+    <div class="b-h-70"></div>
+    <div id="b-content" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-8">
+
+<!-- 文章列表开始 -->
+<foreach name="arr" item="val" key="k">
+          <div class="row b-one-article">
+            <h3 class="col-xs-12 col-md-12 col-lg-12">
+              <a class="b-oa-title" href="/article/105" target="_blank" onclick="return recordId('index',0)">{$val.article_name}</a></h3>
+            <div class="col-xs-12 col-md-12 col-lg-12 b-date">
+              <ul class="row">
+                <li class="col-xs-5 col-md-2 col-lg-3">
+                  <i class="fa fa-user"></i>{$val.user_name}</li>
+                <li class="col-xs-7 col-md-3 col-lg-3">
+                  <i class="fa fa-calendar"></i>{$val.article_time}</li>
+                <li class="col-xs-5 col-md-2 col-lg-2">
+                  <i class="fa fa-list-alt"></i>
+                  <a href="/category/27" target="_blank" id="results">{$val.name}</a>
+                  <li class="col-xs-7 col-md-5 col-lg-4 ">
+                    <i class="fa fa-tags"></i>
+                    <a class="b-tag-name" href="/tag/31" target="_blank">php</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4 hidden-xs">
+                  <figure class="b-oa-pic b-style1">
+                    <a href="/article/105" target="_blank">
+                      <img src="__ROOT__/Uploads/goods/{$val.article_photo}" alt="wilkins博客" title="wilkins博客"></a>
+                    <figcaption>
+                      <a href="/article/105" target="_blank"></a>
+                    </figcaption>
+                  </figure>
+                </div>
+                  <div class="col-xs-12 col-sm-6  col-md-6 col-lg-8 b-des-read">
+                  {$val.article_des}
+                  </div>
+                </div>
+            </div>
+            <a type="button" class="btn btn-primary" style="float:right; margin: 20px" href="{:U('Article/article')}?type_id={$val['id']}&id={$val['article_id']}" target="_blank">阅读全文</a></div><br><hr>
+</foreach>
+<!-- 文章列表结束 -->
+
+<!-- 分页开始 -->
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 b-page">
+              <div class="page">
+               <!--  <a class="first" href="/index/1">首页</a>
+                <a class="prev not-allowed" href="javascript:;">上一页</a>
+                <span class="current">1</span>
+                <a class="num" href="/index/2">2</a>
+                <a class="num" href="/index/3">3</a>
+                <a class="num" href="/index/4">4</a>
+                <a class="num" href="/index/5">5</a>
+                <a class="next" href="/index/2">下一页</a>
+                <a class="end" href="/index/9">末页</a>
+                <span class="rows">共 85 条记录</span> -->
+                {$btn}
+                </div>
+            </div>
+          </div>
+<!-- 分页结束 -->
+        </div>
+
+        <div id="b-public-right" class="col-lg-4 hidden-xs hidden-sm hidden-md">
+          
+<!-- 热门标签开始 -->
+          <div class="b-tags">
+            <h4 class="b-title">热门标签</h4>
+            <ul class="b-all-tname">
+              <li class="b-tname">
+                <a type="button" class="btn btn-success" class="tstyle-1" href="/tag/20" onclick="return recordId('tid',20)">Linux (7) </a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/21" onclick="return recordId('tid',21)">Centos (3)</a></li>
+            </ul>
+          </div>
+      <!-- 热门标签结束 -->
+
+      <!-- 置顶推荐开始 -->
+          <div class="b-recommend">
+            <h4 class="b-title">置顶推荐</h4>
+            <p class="b-recommend-p">
+              <a class="b-recommend-a" href="/article/60" target="_blank">
+                <span class="fa fa-th-list b-black"></span>thinkphp的目录结构设计经验总结</a>
+              <a class="b-recommend-a" href="/article/58" target="_blank">
+                <span class="fa fa-th-list b-black"></span>javascript中的那些让人摸不着头脑的不=</a>
+            </p>
+          </div>
+      <!-- 置顶推荐结束 -->
+
+      <!-- 评论列表开始 -->
+          <div class="b-link">
+            <h4 class="b-title">最新评论</h4>
+            <div>
+              <ul class="b-new-comment ">
+                <img class="b-head-img __PUBLIC__/Home/js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/11F9138BAE340A483EDCDBAE1893F6AD/100" alt="政达。。">
+                <li class="b-nickname">政达。。
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/60" target="_blank">thinkphp的目录结构设计经验总结...</a>中评论</li>
+                <li class="b-content">你好 怎么才能让每个用户都注册发表文章啊...</li></ul>
+            </div>
+          </div>
+
+      <!-- 评论列表结束 -->
+
+      <!-- 友情链接开始 -->
+          <div class="b-link">
+            <h4 class="b-title">友情链接</h4>
+            <p>
+              <a class="b-link-a" href="http://laravelacademy.org" target="_blank">
+                <span class="fa fa-link b-black"></span>Laravel学院</a>
+              <a class="b-link-a" href="http://www.awaimai.com" target="_blank">
+                <span class="fa fa-link b-black"></span>歪麦博客</a>
+              <a class="b-link-a" href="http://wujunze.com" target="_blank">
+                <span class="fa fa-link b-black"></span>吴钧泽博客</a>
+              <a class="b-link-a" href="http://loveteemo.com/" target="_blank">
+                <span class="fa fa-link b-black"></span>青春博客</a>
+              <a class="b-link-a" href="http://zqiqi.cn/" target="_blank">
+                <span class="fa fa-link b-black"></span>七七</a>
+              <a class="b-link-a" href="http://www.payhearts.com" target="_blank">
+                <span class="fa fa-link b-black"></span>麦剑雄的个人博客</a>
+              <a class="b-link-a" href="http://liqingkuo.com/" target="_blank">
+                <span class="fa fa-link b-black"></span>李庆阔博客</a>
+              <a class="b-link-a" href="http://www.koukousky.com" target="_blank">
+                <span class="fa fa-link b-black"></span>koukou的博客</a>
+              <a class="b-link-a" href="http://dongguagua.com" target="_blank">
+                <span class="fa fa-link b-black"></span>咚呱呱</a>
+              <a class="b-link-a" href="http://www.phpernote.com" target="_blank">
+                <span class="fa fa-link b-black"></span>php程序员的笔记</a>
+              <a class="b-link-a" href="http://www.numberer.net/" target="_blank">
+                <span class="fa fa-link b-black"></span>第二导航网</a>
+              <a class="b-link-a" href="http://www.mafutian.net/" target="_blank">
+                <span class="fa fa-link b-black"></span>马富天博客</a>
+              <a class="b-link-a" href="http://baagee.top" target="_blank">
+                <span class="fa fa-link b-black"></span>BaAGee博客</a>
+              <a class="b-link-a" href="https://www.phpsong.com" target="_blank">
+                <span class="fa fa-link b-black"></span>小松博客</a>
+              <a class="b-link-a" href="http://www.blogxuan.com/" target="_blank">
+                <span class="fa fa-link b-black"></span>玄玄博客</a>
+            </p>
+          </div>
+
+          <!-- 友情链接结束 -->
+
+ <!-- 全站搜索开始 -->
+          <div class="b-search">
+            <form class="form-inline" role="form" action="/Home/Index/search" method="get">
+              <input class="b-search-text" type="text" name="search_word">
+              <input class="b-search-submit" type="submit" value="全站搜索"></form>
+          </div>
+          <!-- 全站搜索结束 -->
+        </div>
+      </div>
+      <div class="row">
+        <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul>
+            <li class="text-center">本站使用自主开发的
+              <a rel="nofollow" href="http://git.oschina.net/shuaibai123/thinkbjy" target="_blank">bjyblog v1.1</a>开源博客程序搭建 © 2014-2016 baijunyao.com 版权所有 ICP证：豫ICP备14009546号-3</li>
+            <li class="text-center">联系邮箱：&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;</li></ul>
+          <div class="b-h-20"></div>
+          <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
+        </footer>
+      </div>
+    </div>
+    <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content row">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4></div>
+          </div>
+          <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+            <ul class="row">
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/qq">
+                  <img src="picture/qq-login.png" alt="QQ登录" title="QQ登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/sina">
+                  <img src="picture/sina-login.png" alt="微博登录" title="微博登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/douban">
+                  <img src="picture/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/renren">
+                  <img src="picture/renren-login.png" alt="人人登录" title="人人登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/kaixin">
+                  <img src="picture/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login">
+                  <img src="" alt="待定" title="待定"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="__PUBLIC__/Home/js/jquery-2.0.0.min.js"></script>
+    <script>logoutUrl = "/Home/User/logout";</script>
+    <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/Home/js/html5shiv.min.__PUBLIC__/Home/js"></script>
+      <script src="__PUBLIC__/Home/js/respond.min.__PUBLIC__/Home/js"></script>
+    <![endif]-->
+    <script src="__PUBLIC__/Home/js/pace.min.js"></script>
+    <script src="__PUBLIC__/Home/js/index.js"></script>
+
+    <script>
+    // // $(function(){
+    //   $('.nav-li').click(function(){
+    //         // alert(1);
+
+    //         $('.nav-li').removeClass('color-a');
+    //         $(this).addClass('color-a');
+
+
+    // //       });
+    //   function addList(obj){
+    //     $.ajax({
+    //       type: "get",
+    //       url: "{:U('Home/home')}",
+    //       data: "id=" + $(obj).attr('id'),
+    //       success: function(arr){
+             // console.dir(arr);
+             // alert(arr);
+              // $.each(function(i) {
+               // alert();
+               // var trs = "";
+               // trs += "<tr><td>" + value.name + "</td> <td>" + value.password + "</td></tr>";
+               // tbody += trs;
+           // });
+//            for(var p in arr){
+//     var str = arr;
+//     // return str;
+    // console.dir(str);
+// }
+//    }
+// });
+
+//         }
+      
+    // });
+    
+        // 分页按钮样式
+    // $('.pagination span').unwrap('div').wrap('<li class="btn"></li>').last().parent().addClass('active');
+    // $('.pagination a').wrap('<li class="btn"></li>');
+      // $.ajax({
+      //   url: "{U:('Home/home'')}",
+      //   cache: false,
+      //   success: function(res){
+      //     $("#results").html('res');
+      //   }
+      // });
+      // var res[] = $('#results').html();
+      // $.ajax({
+      //       type: "get",//数据发送的方式（post 或者 get）
+      //       url: "{U:('Home/home'')}",//要发送的后台地址
+      //       data: {res:res},//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
+      //       // dataType: "json",//后台处理后返回的数据格式
+      //       // success: function (data) {//ajax请求成功后触发的方法
+      //       //    alert('请求成功');
+      //       // }
+      //   });
+
+    <!-- 百度页面自动提交开始 -->
+    (function() {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.__PUBLIC__/Home/js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.__PUBLIC__/Home/js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();</script>
+    <!-- 百度页面自动提交结束 -->
+    <!-- 百度统计开始 -->
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.__PUBLIC__/Home/js?c3338ec467285d953aba86d9bd01cd93";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <!-- 百度统计结束 --></body>
+
+</html>

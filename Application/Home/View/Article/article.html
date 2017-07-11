@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>开源项目系列之thinkphp-bjyadmin各种功能扩展-白俊遥博客,技术博客,个人博客模板, php博客系统</title>
+    <meta name="keywords" content="thinkphp,bjyadmin" />
+    <meta name="description" content="新年第一天；是该写篇博客来开心下了；继续开源系列 thinkphp-bjyadmin ；github：https://github.com/baijunyao/thinkphp-bjyadmin这个项目秉承扩展而不改动的原则；围绕着thinkphp进行各种功能的扩展；把实际开发场景中各种解决方案整合入thinkphp；大都以配置项加函数的形式给了示例；并写了大量的文章进行详细的讲解；让童鞋们简单看" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="author" content="baijunyao,&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bjy.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/shcoredefault.css" />
+    <link rel="canonical" href="http://baijunyao.com/article/105" /></head>
+  
+  <body>
+    <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" onclick="recordId('/',0)">
+            <div class="hidden-xs b-nav-background"></div>
+            <ul class="b-logo-code">
+              <li class="b-lc-start"></li>
+              <li class="b-lc-echo"></li></ul>
+            <p class="b-logo-word">wilkins的博客</p>
+            <p class="b-logo-end"></p></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav b-nav-parent">
+            <li class="hidden-xs b-nav-mobile"></li>
+            <li class="b-nav-cname  ">
+              <a href="/" onclick="recordId('/',0)">首页</a></li>
+            <li class="b-nav-cname b-nav-active ">
+              <a href="/category/27" onclick="return recordId('cid',27)">PHP</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/28" onclick="return recordId('cid',28)">前端</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/29" onclick="return recordId('cid',29)">Linux</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/31" onclick="return recordId('cid',31)">乱七八糟</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/30" onclick="return recordId('cid',30)">技术之外</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/chat">随言碎语</a></li>
+            <li class="b-nav-cname hidden-sm   ">
+              <a href="/git">开源项目</a></li>
+          </ul>
+          <ul id="b-login-word" class="nav navbar-nav navbar-right">
+            <li class="b-nav-cname b-nav-login">
+              <div class="hidden-xs b-login-mobile"></div>
+              <a href="javascript:;" onclick="login()">登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="b-h-70"></div>
+    <div id="b-content" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-8">
+          <div class="row b-article">
+            <h1 class="col-xs-12 col-md-12 col-lg-12 b-title">{$arr.article_name}</h1>
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              <ul class="row b-metadata">
+                <li class="col-xs-5 col-md-2 col-lg-3">
+                  <i class="fa fa-user"></i>{$arr.user_name}</li>
+                <li class="col-xs-7 col-md-3 col-lg-3">
+                  <i class="fa fa-calendar"></i>{$arr.article_time}</li>
+                <li class="col-xs-5 col-md-2 col-lg-2">
+                  <i class="fa fa-list-alt"></i>
+                  <a href="/category/30">{$typeList.name}</a>
+                  <li class="col-xs-7 col-md-5 col-lg-4 ">
+                    <i class="fa fa-tags"></i>
+                    <a class="b-tag-name" href="/tag/31">thinkphp</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12 b-content-word">
+              <!-- 文章内容开始 -->
+              {$arr.article_content}
+              <!-- 文章内容结束 -->
+            </div>
+          </div>
+          <script>var userEmail = '';
+            tuzkiNumber = 1;</script>
+        <!-- 文章评论列表开始 -->
+        <form action="{:U('Article/comment')}" method="post">
+        <input type="hidden" name="article_id" value="{$arr.article_id}">
+        <input type="hidden" name="type_id" value="{$arr.type_id}">
+          <div class="row b-comment">
+            <div>
+              <div>
+               <div style="margin: 10px 10px 0 10px"> 用户名称：<input type="text" name="commit_user_name" id=""></div>
+                <div style="margin: 10px 10px 0 10px">
+                  <textarea cols="105" rows="6" name="commit_content" autofocus="" placeholder="请输入评论"></textarea>
+                </div>
+                <div style="text-align:right; margin-right:15px"><input type="submit" value="评论" ></div>
+              </div>
+              <div class="b-clear-float"></div>
+            </div>
+        </form>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-comment-title">
+              <ul class="row">
+                <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">最新评论</li>
+                <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">总共
+                  <span>19</span>条评论</li></ul>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-user-comment">
+              <!-- 评论 -->
+              <div class="row b-user b-parent">
+              <foreach name="comment" item="val" key="k">
+                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 b-pic-col">
+                  <img class="b-user-pic js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/6B5C5969E4F6A493EE7E511A255B91D3/100" alt="wilkins博客" title="wilkins博客">
+                  </div>
+              <!--   <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 b-content-col b-cc-first"></div> -->
+
+                  <p class="b-content">
+                    <span class="b-user-name">{$val.commit_user_name}</span>评论：{$val.commit_conten}</p>
+                  <p class="b-date">{$val.commit_time}
+                    <a href="javascript:;" aid="105" pid="1662" username="{$val.commit_user_name}" onclick="reply(this)">回复</a></p>
+                  <div class="b-clear-float"></div>
+              </foreach>
+              </div>
+              <!-- 评论结束-->
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="b-border"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="b-public-right" class="col-lg-4 hidden-xs hidden-sm hidden-md">
+        <!-- 文章评论列表结束 -->
+        <!-- 热门标签开始 -->
+          <div class="b-tags">
+            <h4 class="b-title">热门标签</h4>
+            <ul class="b-all-tname">
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/20" onclick="return recordId('tid',20)">Linux (7)</a></li>
+            </ul>
+          </div>
+
+          <!-- 热门标签结束 -->
+          <!-- 置顶推荐开始 -->
+          <div class="b-recommend">
+            <h4 class="b-title">置顶推荐</h4>
+            <p class="b-recommend-p">
+              <a class="b-recommend-a" href="/article/60" target="_blank">
+                <span class="fa fa-th-list b-black"></span>thinkphp的目录结构设计经验总结</a>
+            </p>
+          </div>
+          <!-- 置顶推荐结束 -->
+          <!-- 最新评论开始 -->
+          <div class="b-link">
+            <h4 class="b-title">最新评论</h4>
+            <div>
+              <ul class="b-new-comment b-new-commit-first">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/5B1BD34961246D158596F4B6C8BECF77/100" alt="盘">
+                <li class="b-nickname">盘
+                  <span>3小时前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/66" target="_blank">thinkphp整合系列之短信验证码、订...</a>中评论</li>
+                <li class="b-content">厉害</li></ul>
+            </div>
+          </div>
+          <!-- 最新评论结束 -->
+          <!-- 搜索开始 -->
+          <div class="b-search">
+            <form class="form-inline" role="form" action="/Home/Index/search" method="get">
+              <input class="b-search-text" type="text" name="search_word">
+              <input class="b-search-submit" type="submit" value="全站搜索"></form>
+          </div>
+          <!-- 搜索结束 -->
+        </div>
+      </div>
+      <div class="row">
+        <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul>
+            <li class="text-center">本站使用自主开发的
+              <a rel="nofollow" href="http://git.oschina.net/shuaibai123/thinkbjy" target="_blank">bjyblog v1.1</a>开源博客程序搭建 © 2014-2016 baijunyao.com 版权所有 ICP证：豫ICP备14009546号-3</li>
+            <li class="text-center">联系邮箱：&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;</li></ul>
+          <div class="b-h-20"></div>
+          <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
+        </footer>
+      </div>
+    </div>
+    <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content row">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4></div>
+          </div>
+          <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+            <ul class="row">
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/qq">
+                  <img src="picture/qq-login.png" alt="QQ登录" title="QQ登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/sina">
+                  <img src="picture/sina-login.png" alt="微博登录" title="微博登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/douban">
+                  <img src="picture/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/renren">
+                  <img src="picture/renren-login.png" alt="人人登录" title="人人登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/kaixin">
+                  <img src="picture/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login">
+                  <img src="" alt="待定" title="待定"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="__PUBLIC__/Home/js/jquery-2.0.0.min.js"></script>
+    <script>logoutUrl = "/Home/User/logout";</script>
+    <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/Home/js/html5shiv.min.js"></script>
+      <script src="__PUBLIC__/Home/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="__PUBLIC__/Home/js/pace.min.js"></script>
+    <script src="__PUBLIC__/Home/js/index.js"></script>
+    <!-- 百度页面自动提交开始 -->
+    <script>(function() {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();</script>
+    <!-- 百度页面自动提交结束 -->
+    <!-- 百度统计开始 -->
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?c3338ec467285d953aba86d9bd01cd93";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <!-- 百度统计结束 -->
+    <script type="text/javascript" src="__PUBLIC__/Home/js/shcore.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/layer.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();
+      ajaxCommentUrl = "http://baijunyao.com/Home/Index/ajax_comment";
+      check_login = "http://baijunyao.com/Home/User/check_login";</script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/comment.js"></script>
+  </body>
+
+</html>

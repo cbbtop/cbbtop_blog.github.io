@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+    <link href="__PUBLIC__/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
+  </head>
+<body>
+<div class="wrapper">
+    <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+           <nav class="navbar navbar-default">       
+            <div class="collapse navbar-collapse">
+                <div class="navbar-form pull-right margin">
+                      <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回">返回 <i class="fa fa-reply"></i></a>
+               </div>
+            </div>
+           </nav>
+   
+        <!--新订单列表 基本信息-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">基本信息</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>订单ID:</td>
+                        <td>订单号:</td>
+                        <td>会员:</td>
+                        <td>E-Mail:</td>
+                        <td>手机:</td>
+                        <td>应付金额:</td>
+                        <td>订单状态:</td>
+                        <td>下单时间:</td>
+                        <td>支付时间:</td>
+                        <td>支付方式:</td>
+                    </tr>
+                    <tr>
+                        <td>{$orderList['order_id']}</td>
+                        <td>{$orderList['order_sn']}</td>
+                        <td>{$userList['name']}</td>
+                        <td>{$orderList['email']}</td>
+                        <td>{$orderList['mobile']}</td>
+                        <td>{$orderList['goods_amount']}</td>
+                        <td>
+                            <if condition="$orderList.order_status heq '0'">待付款
+                            <elseif condition="$orderList.order_status heq '1'"/>待发货
+                            <elseif condition="$orderList.order_status heq '2'"/>已发货
+                            <elseif condition="$orderList.order_status heq '3'"/>取消订单
+                            </if>
+                        </td>
+                        <td>{$orderList.add_time|date='Y-m-d H:i:s',###}</td>
+                        <td>
+                            {$orderList['pay_time']|date='Y-m-d H:i:s',###}
+                        </td>             
+                        <td>
+                            {$orderList['pay_name']|default='其他方式'}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--新订单列表 收货人信息-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">收货信息</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tbody><tr>
+                    <td>收货人:</td>
+                    <td>联系方式:</td>
+                    <td>地址:</td>
+                    <td>邮编:</td>
+                    <td>配送方式:</td>
+                    <td>发货状态:</td>
+                    <td>快递单号</td>
+                    </tr>
+                    <tr id="1">
+                        <td class="caname" fd='t'>{$orderList['consignee']}</td>
+                        <td fd="t">{$orderList['mobile']}</td>
+                        <td fd="t">{$orderList['address']}</td>
+                        <td fd="t">{$orderList['zipcode']}</td>
+                        <td fd="t">{$orderList['shipping_name']}</td>  
+                        <td fd="t">
+                            <if condition="$orderList.order_status heq '0'">待付款
+                            <elseif condition="$orderList.order_status heq '1'"/>待发货
+                            <elseif condition="$orderList.order_status heq '2'"/>已发货
+                            <elseif condition="$orderList.order_status heq '3'"/>取消订单
+                            </if></td>
+                        <td fd="t">{$orderList['invoice_no']}</td>                    
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--新订单列表 商品信息-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">商品信息 </h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <td class="text-left">商品名称</td>
+                        <td class="text-left">规格</td>
+                        <td class="text-right">数量</td>
+                        <td class="text-right">单品价格</td>
+                        <td class="text-right">单品小计</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach  name="goodsList" item="val" key="k">
+                        <tr>
+                            <td class="text-left">{$val['goods_name']}
+                            </td>
+                            <td class="text-left">{$val['goods_attr']}</td>
+                            <td class="text-right">{$val['goods_number']}</td>
+                            <td class="text-right">{$val['goods_price']}</td>
+                            <td class="text-right">{$val['goods_price']*$val['goods_number']}￥</td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td colspan="4" class="text-right">总计:</td>
+                        <td class="text-right">{$goods_total} ￥</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div> 
+   </section>
+</div>
+</body>
+</html>

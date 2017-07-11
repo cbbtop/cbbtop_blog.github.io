@@ -1,0 +1,713 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>随言碎语-白俊遥博客,技术博客,个人博客模板, php博客系统</title>
+    <meta name="keywords" content="个人博客系统,个人博客模板,thinkphp博客,php博客,技术博客,白俊遥" />
+    <meta name="description" content="白俊遥的php博客,个人技术博客,bjyblog,bjyadmin官方网站" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="author" content="baijunyao,&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bjy.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css"></head>
+  
+  <body>
+    <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" onclick="recordId('/',0)">
+            <div class="hidden-xs b-nav-background"></div>
+            <ul class="b-logo-code">
+              <li class="b-lc-start">&lt;?php</li>
+              <li class="b-lc-echo">echo</li></ul>
+            <p class="b-logo-word">'白俊遥博客'</p>
+            <p class="b-logo-end">;</p></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav b-nav-parent">
+            <li class="hidden-xs b-nav-mobile"></li>
+            <li class="b-nav-cname  ">
+              <a href="/" onclick="recordId('/',0)">首页</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/27" onclick="return recordId('cid',27)">PHP</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/28" onclick="return recordId('cid',28)">前端</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/29" onclick="return recordId('cid',29)">Linux</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/31" onclick="return recordId('cid',31)">乱七八糟</a></li>
+            <li class="b-nav-cname  ">
+              <a href="/category/30" onclick="return recordId('cid',30)">技术之外</a></li>
+            <li class="b-nav-cname b-nav-active ">
+              <a href="/chat">随言碎语</a></li>
+            <li class="b-nav-cname hidden-sm   ">
+              <a href="/git">开源项目</a></li>
+          </ul>
+          <ul id="b-login-word" class="nav navbar-nav navbar-right">
+            <li class="b-nav-cname b-nav-login">
+              <div class="hidden-xs b-login-mobile"></div>
+              <a href="javascript:;" onclick="login()">登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="b-h-70"></div>
+    <div id="b-content" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-8 b-chat">
+          <div class="b-chat-left">
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-12-11 22:45:53</li>
+              <li class="b-chat-content">事儿实在实在是太多了；断更了一个月后；终于终于抽出时间写写博客；回复评论了；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-10-23 10:42:22</li>
+              <li class="b-chat-content">最近真是太忙了；一篇博客；都得分几天才能写完；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-09-18 23:01:35</li>
+              <li class="b-chat-content">哪有那么多爱情；别人只是想找个人问问题而已；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-09-15 10:13:04</li>
+              <li class="b-chat-content">“如果我拒绝了你。是不是以后就不能找你修电脑了！”</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-09-04 04:15:52</li>
+              <li class="b-chat-content">被一杯睡前的浓咖啡从睡梦中唤醒来完成一个每年一天的特殊日子中的一篇博客；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-08-21 11:20:37</li>
+              <li class="b-chat-content">一个人的日子里你要做的只有一件事；把自己变得更优秀；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-07-24 21:24:58</li>
+              <li class="b-chat-content">想很专注的去钻研技术；可总是有太多羁绊；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-05-29 02:12:20</li>
+              <li class="b-chat-content">这一连串bug调的我也是真醉了；好久没有敲代码敲到这么晚了；睡觉；睡觉；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-03-26 14:31:29</li>
+              <li class="b-chat-content">本已安安静静；却不想总被惊起一片涟漪；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2016-01-27 23:43:51</li>
+              <li class="b-chat-content">最近天天加班赶项目；实在是略忙；博客都没空好好写了；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-11-26 21:58:50</li>
+              <li class="b-chat-content">怕吃苦吃苦一辈子；不怕苦吃苦半辈子；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-10-15 22:35:46</li>
+              <li class="b-chat-content">我是难过了的；在不为人知的角落；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-09-03 12:19:29</li>
+              <li class="b-chat-content">对于两个人来说；你的优点我记在心里；你的所有毛病我都能接受；这就是合适；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-08-22 00:05:56</li>
+              <li class="b-chat-content">灵明无着；物来顺应；未来不迎；当时不杂；既过不恋；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-07-22 23:19:04</li>
+              <li class="b-chat-content">态度决定能否成功；努力程度决定高度；运气决定速度；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-07-05 08:05:51</li>
+              <li class="b-chat-content">最后；所有的挫折和失败都源于我不够优秀；而我要的就是把自己建设的更加优秀；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-06-09 23:27:30</li>
+              <li class="b-chat-content">还好为自己营造了这么一个角落；悲喜时都可以静静的写点什么；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-06-05 23:45:24</li>
+              <li class="b-chat-content">愿人生少许非出于本心的选择；愿每个重大的抉择都不要偏离太远；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-05-30 23:50:34</li>
+              <li class="b-chat-content">成熟的代价中感知最清晰的除了父母一天天的衰老；还有飞快流逝的时间；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInLeft">
+              <li class="b-chat-title ">2015-05-29 23:25:12</li>
+              <li class="b-chat-content">用别人无法理解的努力去奋斗；因为真的没有那么多的以后；那些错过一不小心就成了永远；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+          </div>
+          <div class="b-chat-middle"></div>
+          <div class="b-chat-right">
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-11-16 22:07:59</li>
+              <li class="b-chat-content">做个安静的人；不争抢；是我的跑不掉；不是我的抢不来；不大喜；亦不大悲；能倾听他人想法；能思考自己生活；欣赏别人；你很好但我也不赖；君有大世界，我有小生活；此地甚好；从容而行；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-09-21 22:12:23</li>
+              <li class="b-chat-content">只有真正努力过；才知道时间永远不够用；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-09-15 10:13:16</li>
+              <li class="b-chat-content">哪有那么多爱情，别人只是想找你修电脑而已！</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-09-11 17:44:34</li>
+              <li class="b-chat-content">遨游在编程的世界里；喜欢1和0的纯粹；不会有外界那么多的不确定；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-09-01 21:49:33</li>
+              <li class="b-chat-content">北漂两年整；这次没有一通感慨；看来相比于去年；更加沉稳平静了；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-08-07 21:20:17</li>
+              <li class="b-chat-content">得了一场很重；很久的感冒；今天好了；但是却感觉如此的难过；不过没关系；博客今天开始恢复更新了；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-06-11 23:24:07</li>
+              <li class="b-chat-content">端午假期本想集中时间痛快的写上三篇博客；结果；各种耽搁后；只有一篇问世；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-04-24 23:34:14</li>
+              <li class="b-chat-content">技术这东西；懂的越多；不懂的就越多；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2016-03-06 15:43:21</li>
+              <li class="b-chat-content">低头做事；抬头做人；脚踏实地；过简单的小日子 ；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-12-22 23:25:36</li>
+              <li class="b-chat-content">成长的副作用之一；就是让交朋友变得越来越难；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-11-01 18:36:54</li>
+              <li class="b-chat-content">不是没时间；就是因为有时间；把很多事留给以后去做；一拖再拖；太放心的让它搁在那；任凭风吹雨打；铺上厚厚的灰尘；而最后它终将只能成为曾经想要做的事；想要说的话；想要抓住的人；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-10-09 22:46:36</li>
+              <li class="b-chat-content">真正的朋友 ，不是双方有意识的吸附与粘合，而是彼此间的无意识的渗透与融入。吸附与粘合，常常怀有目的性和功利欲，或含蓄或浓烈，总之，看起来，有些心怀鬼胎；而渗透与融入，则不然，云淡风轻的，风倏忽间来，云恬淡着去，无欲无求，是心灵最真挚的握手，是情感受最纯净的需要。</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-09-01 06:51:45</li>
+              <li class="b-chat-content">北漂一整年！本想洋洋洒洒写上一篇！奈何文笔疏浅又觉之矫情！寥寥几句带过了！人生的大致方向和**基本尘埃落定！终于踏入我所热爱的IT领域！努力实现着曾经说过的要在互联网行业有番作为的理想！收获与学会了担当、感恩、理解、责任！却也失去了很多我所在乎的！我想！我应该算是幸运的了！只不过再也不幻想我会是幸运的了！</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-08-02 23:19:50</li>
+              <li class="b-chat-content">不要太相信未来，未来是个很忽悠人的东西；把握好现在更靠谱；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-07-19 09:24:16</li>
+              <li class="b-chat-content">不喜欢无意义的坚持；希望坚持的不是无意义的；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-06-11 00:25:10</li>
+              <li class="b-chat-content">似乎情绪真能影响到身体；人生首次的夏季感冒就这样趁虚而入；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-06-08 22:45:58</li>
+              <li class="b-chat-content">付出总会有回报；埋头认真苦干；相信未来将会无限美好；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-06-01 21:56:35</li>
+              <li class="b-chat-content">生活总是让人充满了无奈；最后只能是不断妥协曾经的坚持；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+            <ul class="b-chat-one animated bounceInRight">
+              <li class="b-chat-title ">2015-05-29 23:30:17</li>
+              <li class="b-chat-content">云淡风轻；细水长流；以淡然的心态面对人生；</li>
+              <div class="b-arrows-right1">
+                <div class="b-arrows-round"></div>
+              </div>
+              <div class="b-arrows-right2"></div>
+            </ul>
+          </div>
+        </div>
+        <div id="b-public-right" class="col-lg-4 hidden-xs hidden-sm hidden-md">
+          <div class="b-tags">
+            <h4 class="b-title">热门标签</h4>
+            <ul class="b-all-tname">
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/20" onclick="return recordId('tid',20)">Linux (7)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/21" onclick="return recordId('tid',21)">Centos (3)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/22" onclick="return recordId('tid',22)">Apache (4)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/23" onclick="return recordId('tid',23)">虚拟主机 (4)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/24" onclick="return recordId('tid',24)">wamp (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/25" onclick="return recordId('tid',25)">励志 (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/26" onclick="return recordId('tid',26)">html (15)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/27" onclick="return recordId('tid',27)">函数 (14)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/28" onclick="return recordId('tid',28)">jQuery (3)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/29" onclick="return recordId('tid',29)">css (7)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/30" onclick="return recordId('tid',30)">ueditor (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/31" onclick="return recordId('tid',31)">thinkphp (31)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/32" onclick="return recordId('tid',32)">MySQL (5)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/33" onclick="return recordId('tid',33)">php类 (3)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/34" onclick="return recordId('tid',34)">JavaScript (9)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/35" onclick="return recordId('tid',35)">读书 (1)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/36" onclick="return recordId('tid',36)">情感 (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/37" onclick="return recordId('tid',37)">js插件 (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/38" onclick="return recordId('tid',38)">软件 (5)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/39" onclick="return recordId('tid',39)">php基础 (14)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/40" onclick="return recordId('tid',40)">echart (1)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/41" onclick="return recordId('tid',41)">mac (2)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/42" onclick="return recordId('tid',42)">laravel (1)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-4" href="/tag/43" onclick="return recordId('tid',43)">观影有感 (1)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-1" href="/tag/44" onclick="return recordId('tid',44)">vue.js (4)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-2" href="/tag/45" onclick="return recordId('tid',45)">node.js (6)</a></li>
+              <li class="b-tname">
+                <a class="tstyle-3" href="/tag/46" onclick="return recordId('tid',46)">git (1)</a></li>
+            </ul>
+          </div>
+          <div class="b-recommend">
+            <h4 class="b-title">置顶推荐</h4>
+            <p class="b-recommend-p">
+              <a class="b-recommend-a" href="/article/60" target="_blank">
+                <span class="fa fa-th-list b-black"></span>thinkphp的目录结构设计经验总结</a>
+              <a class="b-recommend-a" href="/article/58" target="_blank">
+                <span class="fa fa-th-list b-black"></span>javascript中的那些让人摸不着头脑的不=</a>
+              <a class="b-recommend-a" href="/article/55" target="_blank">
+                <span class="fa fa-th-list b-black"></span>深入解析array_merge函数的用法 php</a>
+              <a class="b-recommend-a" href="/article/52" target="_blank">
+                <span class="fa fa-th-list b-black"></span>javascript的函数作用域及声明提前</a>
+              <a class="b-recommend-a" href="/article/42" target="_blank">
+                <span class="fa fa-th-list b-black"></span>php多维数组自定义排序 uasort()</a>
+              <a class="b-recommend-a" href="/article/29" target="_blank">
+                <span class="fa fa-th-list b-black"></span>apache 开启Gzip网页压缩</a>
+              <a class="b-recommend-a" href="/article/27" target="_blank">
+                <span class="fa fa-th-list b-black"></span>查询文章的上下篇Sql语句</a>
+              <a class="b-recommend-a" href="/article/20" target="_blank">
+                <span class="fa fa-th-list b-black"></span>以符合人类阅读的方式打印php数组</a>
+              <a class="b-recommend-a" href="/article/18" target="_blank">
+                <span class="fa fa-th-list b-black"></span>PHP按符号截取字符串的指定部分</a>
+              <a class="b-recommend-a" href="/article/16" target="_blank">
+                <span class="fa fa-th-list b-black"></span>一行jQuery代码搞定checkbox 全选和全不选</a>
+              <a class="b-recommend-a" href="/article/15" target="_blank">
+                <span class="fa fa-th-list b-black"></span>解决ssh链接服务器超时自动断开的问题</a>
+              <a class="b-recommend-a" href="/article/12" target="_blank">
+                <span class="fa fa-th-list b-black"></span>总结php删除html标签和标签内的内容的方法</a>
+            </p>
+          </div>
+          <div class="b-link">
+            <h4 class="b-title">最新评论</h4>
+            <div>
+              <ul class="b-new-comment b-new-commit-first">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/5B1BD34961246D158596F4B6C8BECF77/100" alt="盘">
+                <li class="b-nickname">盘
+                  <span>3小时前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/66" target="_blank">thinkphp整合系列之短信验证码、订...</a>中评论</li>
+                <li class="b-content">厉害</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/9BBE13063555314FED424B8FF5C9D4D1/100" alt="（⌒_⌒ ）">
+                <li class="b-nickname">（⌒_⌒ ）
+                  <span>4小时前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/66" target="_blank">thinkphp整合系列之短信验证码、订...</a>中评论</li>
+                <li class="b-content">为什么一个手机号只能接受5次验证码？...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/2768224F57656854840075D2F2B7BB64/100" alt="凌水">
+                <li class="b-nickname">凌水
+                  <span>8小时前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/80" target="_blank">thinkphp整合系列之webuplo...</a>中评论</li>
+                <li class="b-content">怎么将上传的大文件片段进行合并？？...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/078F14DF015079C6851143E9ADE00918/100" alt="放ㄣ肆の青ぃ春">
+                <li class="b-nickname">放ㄣ肆の青ぃ春
+                  <span>1天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/106" target="_blank">thinkphp整合系列之苹果AppSt...</a>中评论</li>
+                <li class="b-content">为什么权限管理的符号是错误的呢？...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/803F49097DD3AB14C70508B5FF9BAEFF/100" alt="奋斗(二维码中心)">
+                <li class="b-nickname">奋斗(二维码中心)
+                  <span>1天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/80" target="_blank">thinkphp整合系列之webuplo...</a>中评论</li>
+                <li class="b-content">有没有tp5 使用的完整版介绍...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/66294C3C002061513EE2D830451FA7C6/100" alt="天">
+                <li class="b-nickname">天
+                  <span>1天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/90" target="_blank">thinkphp把模板文件View独立出...</a>中评论</li>
+                <li class="b-content">刚在百度找到大神，clone了源码，发现有个文件夹tpl_src，这个是可以删除...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/078F14DF015079C6851143E9ADE00918/100" alt="放ㄣ肆の青ぃ春">
+                <li class="b-nickname">放ㄣ肆の青ぃ春
+                  <span>1天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/21" target="_blank">thinkphp自定义模板标签(一)...</a>中评论</li>
+                <li class="b-content">
+                  <img src="picture/t_0003.gif" title="Yeah" alt="白俊遥博客">666</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/7AB1072DF48C415AAC04B6C9545E2303/100" alt="Miss 小林＂">
+                <li class="b-nickname">Miss 小林＂
+                  <span>1天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/103" target="_blank">thinkphp整合系列之gulp实现前...</a>中评论</li>
+                <li class="b-content">不知道为什么我运行之后压缩是压缩了 &nbsp; &nbsp;命令行出现了：Op...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/D628A5D18A90A42E66028507A2BA91A4/100" alt="方不方☞">
+                <li class="b-nickname">方不方☞
+                  <span>2天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/66" target="_blank">thinkphp整合系列之短信验证码、订...</a>中评论</li>
+                <li class="b-content">这个阿里大鱼的怎么配置呀？...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/BC16D74DE264EA28F383744286667BA7/100" alt="Day Day Xiang Up">
+                <li class="b-nickname">Day Day Xiang Up
+                  <span>3天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/91" target="_blank">thinkphp安装引导程序...</a>中评论</li>
+                <li class="b-content">为什么我导入数据库 复制文件之后，打开首页 404呢...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/A608D05E2E0A636818966D4F6DC6AC91/100" alt="夏一">
+                <li class="b-nickname">夏一
+                  <span>3天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/66" target="_blank">thinkphp整合系列之短信验证码、订...</a>中评论</li>
+                <li class="b-content">吊炸天，终于找到组织了！...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/BC16D74DE264EA28F383744286667BA7/100" alt="Day Day Xiang Up">
+                <li class="b-nickname">Day Day Xiang Up
+                  <span>3天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/81" target="_blank">php生成csv格式的excel表格...</a>中评论</li>
+                <li class="b-content">不错哦！...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/039950339A5733410DF971566EDE4FCB/100" alt="香蕉你个banana">
+                <li class="b-nickname">香蕉你个banana
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/81" target="_blank">php生成csv格式的excel表格...</a>中评论</li>
+                <li class="b-content">白大神问题解决了...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/039950339A5733410DF971566EDE4FCB/100" alt="香蕉你个banana">
+                <li class="b-nickname">香蕉你个banana
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/81" target="_blank">php生成csv格式的excel表格...</a>中评论</li>
+                <li class="b-content">白大神,在今天使用导出csv的格式的时候,会有数据丢失的情况,但是,在打印数据的...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/57ED88E69D988579F911EB69CDD9F10E/100" alt="码农">
+                <li class="b-nickname">码农
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/80" target="_blank">thinkphp整合系列之webuplo...</a>中评论</li>
+                <li class="b-content">不错，我很喜欢这个插件...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/6B5C5969E4F6A493EE7E511A255B91D3/100" alt="至死方休">
+                <li class="b-nickname">至死方休
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/105" target="_blank">开源项目系列之thinkphp-bjya...</a>中评论</li>
+                <li class="b-content">文件上传部分貌似有问题啊,上传成功后没有文件名返回,找老半天了都没找到是什么错误...</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/529E5579681D69BD101F62737BAF5C09/100" alt="我看看不到">
+                <li class="b-nickname">我看看不到
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/21" target="_blank">thinkphp自定义模板标签(一)...</a>中评论</li>
+                <li class="b-content">
+                  <img src="picture/t_0003.gif" title="Yeah" alt="白俊遥博客"></li>
+              </ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/529E5579681D69BD101F62737BAF5C09/100" alt="我看看不到">
+                <li class="b-nickname">我看看不到
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/21" target="_blank">thinkphp自定义模板标签(一)...</a>中评论</li>
+                <li class="b-content">强势</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/529E5579681D69BD101F62737BAF5C09/100" alt="我看看不到">
+                <li class="b-nickname">我看看不到
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/21" target="_blank">thinkphp自定义模板标签(一)...</a>中评论</li>
+                <li class="b-content">放</li></ul>
+              <ul class="b-new-comment ">
+                <img class="b-head-img js-head-img" src="picture/qq_default.jpg" _src="http://qzapp.qlogo.cn/qzapp/101206152/11F9138BAE340A483EDCDBAE1893F6AD/100" alt="政达。。">
+                <li class="b-nickname">政达。。
+                  <span>4天前</span></li>
+                <li class="b-nc-article">在
+                  <a href="/article/60" target="_blank">thinkphp的目录结构设计经验总结...</a>中评论</li>
+                <li class="b-content">你好 怎么才能让每个用户都注册发表文章啊...</li></ul>
+            </div>
+          </div>
+          <div class="b-search">
+            <form class="form-inline" role="form" action="/Home/Index/search" method="get">
+              <input class="b-search-text" type="text" name="search_word">
+              <input class="b-search-submit" type="submit" value="全站搜索"></form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul>
+            <li class="text-center">本站使用自主开发的
+              <a rel="nofollow" href="http://git.oschina.net/shuaibai123/thinkbjy" target="_blank">bjyblog v1.1</a>开源博客程序搭建 © 2014-2016 baijunyao.com 版权所有 ICP证：豫ICP备14009546号-3</li>
+            <li class="text-center">联系邮箱：&#98;&#97;&#x69;&#x6a;&#117;&#110;&#121;&#x61;&#111;&#x40;&#98;&#x61;&#x69;&#106;&#117;&#110;&#121;&#x61;&#111;&#46;&#x63;&#111;&#109;</li></ul>
+          <div class="b-h-20"></div>
+          <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
+        </footer>
+      </div>
+    </div>
+    <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content row">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4></div>
+          </div>
+          <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+            <ul class="row">
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/qq">
+                  <img src="picture/qq-login.png" alt="QQ登录" title="QQ登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/sina">
+                  <img src="picture/sina-login.png" alt="微博登录" title="微博登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/douban">
+                  <img src="picture/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/renren">
+                  <img src="picture/renren-login.png" alt="人人登录" title="人人登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login/type/kaixin">
+                  <img src="picture/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
+              </li>
+              <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                <a href="/Home/User/oauth_login">
+                  <img src="" alt="待定" title="待定"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <script>logoutUrl = "/Home/User/logout";</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/pace.min.js"></script>
+    <script src="js/index.js"></script>
+    <!-- 百度页面自动提交开始 -->
+    <script>(function() {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();</script>
+    <!-- 百度页面自动提交结束 -->
+    <!-- 百度统计开始 -->
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?c3338ec467285d953aba86d9bd01cd93";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <!-- 百度统计结束 --></body>
+
+</html>

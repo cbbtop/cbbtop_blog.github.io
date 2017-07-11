@@ -1,0 +1,54 @@
+	<div class="sidebar">
+    <!-- 搜索 -->
+	    <div class="sidebox">
+            <h3 class="line">Search</h3>
+            <form class="searchform" action="{:U('Index/url')}" method="post">
+                <input type="text" id="s" name="search" value="搜索文章" onfocus="this.value=''" onblur="this.value='搜索文章'"/>
+            </form>
+        </div>
+    <!-- 搜索结束 -->
+    	<div class="sidebox">
+			<h3 class="line">热门标签</h3>
+			<ul class="cat-list">
+			<foreach name="tags" item="vo" key="key">
+				<li><a href="{:U('Index/url')}?tags={$vo}">{$vo}</a></li>
+			</foreach>
+			</ul>
+		</div>
+		<div class="sidebox">
+			<h3 class="line">最新评论</h3>
+			<ul class="popular-posts">
+                <foreach name="commentList" item="vo" key="k" >
+                <li>
+                    <a href="#"><img src="__PUBLIC__/Home/style/images/art/ad1.jpg" alt="钟伟建的博客" /></a>
+                    <h5><a href="{:U('Post/post')}?id={$vo['article_id']}">{$vo.user_name}</a></h5>
+                    <h5><a href="#">留言：{$vo.message_content}</a></h5>
+                    <span>{:date('Y-m-d H:i:s',$vo['message_stay_time'])} | <a href="{:U('Post/post')}?id={$vo['article_id']}">{$vo.user_name}</a></span>
+                </li>
+                </foreach>
+            </ul>
+		</div>
+		
+		<div class="sidebox">
+			<h3 class="line">最新文章</h3>
+			<ul class="popular-posts">
+                <foreach name="articleList" item="vo" key="k" >
+				<li>
+					<a href="{:U('Post/post')}?id={$vo.article_id}"><img src="__PUBLIC__/Home/style/images/art/ad1.jpg" alt="钟伟建的博客" /></a>
+					<h5><a href="{:U('Post/post')}?id={$vo.article_id}">{$vo.article_name}</a></h5>
+					<span>{:date('Y-m-d H:i:s',$vo['article_time'])} | <a href="#">{$vo.user_name}</a></span>
+				</li>
+                </foreach>
+			</ul>
+		</div>
+		
+		
+		
+        <div class="sidebox">
+            <h3 class="line">友情链接</h3>
+            <ul class="cat-list">
+                <foreach name="linkList" item="vo" key="k">
+                <li><a href="{$vo.link_url}">{$vo.link_name}</a></li>
+                </foreach>
+            </ul>
+        </div>
